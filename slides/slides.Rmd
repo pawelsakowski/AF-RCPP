@@ -298,6 +298,67 @@ For a call option:
 
 6. **dividend rate** -- influences negatively value of call option and positively value of put option. Dividend payoffs decreases value of the underlying instrument, hence the effect is similar when the current price of underlying instruments declines. 
 
+
+# Market prices 
+```{r, eval = T, echo = F, message = F}
+dt <- read_csv(here("data/quotes_2025-12-01.csv"))
+dt |> 
+  filter(expiration == "2025-12-19") |> 
+  filter(option_type == "C") |> 
+  mutate(strike = strike |> as.factor()) |> 
+  ggplot(aes(quote_datetime, mid, color = strike)) +
+  geom_line() +
+  labs(title = "Mid-quotes of call options for S&P 500", 
+       subtitle = "quotes for 2025-12-01, expiration = 2025-12-29",
+       x = "", y = "") +
+  theme_minimal()
+```
+
+# Market prices
+```{r, eval = T, echo = F}
+dt |> 
+  filter(expiration == "2025-12-19") |> 
+  filter(option_type == "P") |> 
+  mutate(strike = strike |> as.factor()) |> 
+  ggplot(aes(quote_datetime, mid, color = strike)) +
+  geom_line() +
+  labs(title = "Mid-quotes of put options for S&P 500", 
+       subtitle = "quotes for 2025-12-01, expiration = 2025-12-29",
+       x = "", y = "") +
+  theme_minimal()
+```
+
+# Market prices
+```{r, eval = T, echo = F}
+dt |> 
+  filter(strike == 6800) |> 
+  filter(option_type == "C") |> 
+  filter(between(expiration, as.Date("2025-12-02"), as.Date("2026-06-30"))) |> 
+  mutate(expiration = expiration |> as.factor()) |> 
+  ggplot(aes(quote_datetime, mid, color = expiration)) +
+  geom_line() +
+  labs(title = "Mid-quotes of call options for S&P 500", 
+       subtitle = "quotes for 2025-12-01, strike = 6800",
+       x = "", y = "") +
+  theme_minimal()
+```
+
+# Market prices
+```{r, eval = T, echo = F}
+dt |> 
+  filter(strike == 6800) |> 
+  filter(option_type == "P") |> 
+  filter(between(expiration, as.Date("2025-12-02"), as.Date("2026-06-30"))) |> 
+  mutate(expiration = expiration |> as.factor()) |> 
+  ggplot(aes(quote_datetime, mid, color = expiration)) +
+  geom_line() +
+  labs(title = "Mid-quotes of put options for S&P 500", 
+       subtitle = "quotes for 2025-12-01, strike = 6800",
+       x = "", y = "") +
+  theme_minimal()
+```
+
+
 # Black-Scholes-Merton (BSM) Model
 
 The most popular model for pricing options for underlying instruments not paying dividend has been proposed in 70's by Fischer Black and Myron Scholes, and modified by Robert Merton. 
@@ -412,64 +473,6 @@ where for European call $f (S) = (S - K)_{+}$.
 \item Multiply this average by $e^{-rT}$.
 \end{enumerate} 
 
-# Market prices 
-```{r, eval = T, echo = F, message = F}
-dt <- read_csv(here("data/quotes_2025-12-01.csv"))
-dt |> 
-  filter(expiration == "2025-12-19") |> 
-  filter(option_type == "C") |> 
-  mutate(strike = strike |> as.factor()) |> 
-  ggplot(aes(quote_datetime, mid, color = strike)) +
-  geom_line() +
-  labs(title = "Mid-quotes of call options for S&P 500", 
-       subtitle = "quotes for 2025-12-01, expiration = 2025-12-29",
-       x = "", y = "") +
-  theme_minimal()
-```
-
-# Market prices
-```{r, eval = T, echo = F}
-dt |> 
-  filter(expiration == "2025-12-19") |> 
-  filter(option_type == "P") |> 
-  mutate(strike = strike |> as.factor()) |> 
-  ggplot(aes(quote_datetime, mid, color = strike)) +
-  geom_line() +
-  labs(title = "Mid-quotes of put options for S&P 500", 
-       subtitle = "quotes for 2025-12-01, expiration = 2025-12-29",
-       x = "", y = "") +
-  theme_minimal()
-```
-
-# Market prices
-```{r, eval = T, echo = F}
-dt |> 
-  filter(strike == 6800) |> 
-  filter(option_type == "C") |> 
-  filter(between(expiration, as.Date("2025-12-02"), as.Date("2026-06-30"))) |> 
-  mutate(expiration = expiration |> as.factor()) |> 
-  ggplot(aes(quote_datetime, mid, color = expiration)) +
-  geom_line() +
-  labs(title = "Mid-quotes of call options for S&P 500", 
-       subtitle = "quotes for 2025-12-01, strike = 6800",
-       x = "", y = "") +
-  theme_minimal()
-```
-
-# Market prices
-```{r, eval = T, echo = F}
-dt |> 
-  filter(strike == 6800) |> 
-  filter(option_type == "P") |> 
-  filter(between(expiration, as.Date("2025-12-02"), as.Date("2026-06-30"))) |> 
-  mutate(expiration = expiration |> as.factor()) |> 
-  ggplot(aes(quote_datetime, mid, color = expiration)) +
-  geom_line() +
-  labs(title = "Mid-quotes of put options for S&P 500", 
-       subtitle = "quotes for 2025-12-01, strike = 6800",
-       x = "", y = "") +
-  theme_minimal()
-```
 
 # Monte Carlo simulations
 
