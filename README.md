@@ -1,6 +1,6 @@
-# AF-RCPP-2024-2025
+# AF-RCPP
 
-This repository contains materials to the "Applied Finance" course at the University of Warsaw, Faculty of Economic Sciences in academic year 2024/2025. Materials refer to the part "Path dependent option pricing with Monte Carlo simulations and Rcpp package".
+This repository contains materials to the "Applied Finance" course at the University of Warsaw, Faculty of Economic Sciences. Materials refer to the part "Path dependent option pricing with Monte Carlo simulations and Rcpp package".
 
 The aim of this short course is to provide techniques of incorporating `c++` code into `R` environment. Three techniques will be discussed:
 
@@ -8,7 +8,7 @@ The aim of this short course is to provide techniques of incorporating `c++` cod
 * `sourceCpp()` function - for longer `c++` code chunks located in separate `*.cpp` files
 * `Rcpp` package - for a project that consist of 2 or more files 
 
-The `Rcpp` package will be used to provide function defined in `c++` which will be responsible for providing valuations of path-dependent option of European style using the Monte Carlo simulation technique.
+The `Rcpp` package will be used to provide functions defined in `c++` which will be responsible for providing valuations of path-dependent option of European style using the Monte Carlo simulation technique.
 
 To earn credits for this part of the curse, students will have to provide solutions to their individual home projects which will concentrate on valuation of a specific path-dependent option.
 
@@ -42,11 +42,9 @@ The aim is to compare of efficiency of Monte Carlo European Call option pricing 
 * using loops in C++, via Rcpp
 * using vectors in R with antithetic sampling
 
-We also introduce a simple `c++` application which runs in Command Line (Windows) or terminal (Linux/MacOS). To compile its source code into executable file you can use one of the popular IDEs ([Microsoft Visual Studio](https://visualstudio.microsoft.com/), [CLion](https://www.jetbrains.com/clion/), [Code Blocks](http://www.codeblocks.org/)), code editors ([VS Code](https://code.visualstudio.com/), [Xcode](https://developer.apple.com/xcode/), [Sublime Text](https://www.sublimetext.com/), [Vim](https://www.vim.org/), and many others) or even simple text editors (just to mention [Notepad++](https://notepad-plus-plus.org/) on Windows).
+We also introduce a simple `c++` application which runs in Command Line (Windows) or terminal (Linux/MacOS). To compile its source code into executable file you can use one of the popular IDEs. I recommend [VS Code](https://code.visualstudio.com/) for this. Below you will useful information how to set up VS Code for work with c++ code using the GCC compiler. Its very simple and shouldn't take your more than 5 minutes.
 
-I highly recommend here trying [VS Code](https://code.visualstudio.com/) for this. Below you will useful information how to set up VS Code for work with c++ code using the GCC compiler. Its very simple and shouldn't take your more than 5 minutes!
-
-- getting started with C/C++ for Visual Studio Code: https://code.visualstudio.com/docs/languages/cpp
+* getting started with C/C++ for Visual Studio Code: https://code.visualstudio.com/docs/languages/cpp
 * using GCC on Linux: https://code.visualstudio.com/docs/cpp/config-linux
 * using GCC with MinGW on Windows: https://code.visualstudio.com/docs/cpp/config-mingw
 * Please change the `"${file}"` element of the `tasks.json` file into `"${fileDirname}/*.cpp"` (under Linux/MacOS) or `"${fileDirname}\\**.cpp"` (under Windows). This will allow to build projects which consist of more then one `*.cpp` file.
@@ -101,7 +99,7 @@ See `scripts/optionPricer2Application.R` to examine the example.
 
 ## Grading Policy
 
-* Each participant will get by 2024-12-10 an assignment with an individual home project.
+* Each participant will get an assignment with an individual home project.
 * The aim of the project will be to apply Monte Carlo techniques to provide an approximation of the path-dependent option.
 * The solution should be delivered in a form of a Rcpp-package, along with a short implementation of the function/functions which are provided by this package.
 * All codes from the lectures and labs can be used in the solutions.

@@ -7,7 +7,7 @@ author: |
     | Paweł Sakowski
     | Department of Quantitative Finance
 date: |
- | academic year 2024/2025
+ | academic year 2025/2026
  | ![](img/WNE_UW_EN.pdf)
 fontsize: 10pt
 output: 
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 
-```{r, echo = F, warning=F, message=FALSE}
+```{r, echo = FALSE , warning = FALSE, message = FALSE, cache = FALSE}
 library(knitr)
 library(tidyverse)
 library(RQuantLib)
@@ -586,7 +586,6 @@ Dirk Eddelbuettel, *Seamless R and C++ Integration with Rcpp*
 * http://adv-r.had.co.nz/Rcpp.html
 * http://gallery.rcpp.org/
 * https://support.rstudio.com/hc/en-us/articles/200486088-Using-Rcpp-with-RStudio
-* https://blog.revolutionanalytics.com/2012/11/hadleys-guide-to-high-performance-r-with-rcpp.html
 
 # Recommended readings -- Rcpp #3
 <!--
@@ -614,7 +613,6 @@ http://www.edii.uclm.es/~useR-2013/Tutorials/Francois.html
 * http://cran.rstudio.com/web/packages/Rcpp/vignettes/Rcpp-attributes.pdf
 * Integrating R with C++: Rcpp, RInside, and RProtobuf: http://www.youtube.com/watch?v=UZkaZhsOfT4
 * http://blog.rstudio.org/2012/11/29/rstudio-and-rcpp/
-* https://github.com/hadley/devtools/wiki/Rcpp
 
 
 
