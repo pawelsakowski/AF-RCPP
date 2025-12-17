@@ -44,7 +44,7 @@ int main(){
   //check whether the Data Generating Process runs correctly
   //(is the expected price and volatility of underlying close to option parameters?)
   vector<double> myVec2;
-  for(int i = 0; i < 1000; i++){
+  for(int i = 0; i < 1000000; i++){
     myAsian.generatePath();
     myVec2.push_back(myAsian.thisPath.back());
   }

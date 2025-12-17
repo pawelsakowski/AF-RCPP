@@ -462,6 +462,28 @@ From the law of large numbers we know that if $Y_j$ are a sequence of identicall
 \end{equation}
 converges to $\mathbb{E}(Y)$.
 
+# Stock price motion in Monte Carlo methods
+
+The price $S_t$ at time $t$ starts from $S_0$ and follows 
+
+$$S_t = S_0 \exp\left( \left( \mu - \frac{\sigma^2}{2} \right) t + \sigma W_t \right)$$
+where $W_t$ is standard Brownian motion, $\mu$ is drift, and $\sigma$ is volatility. 
+
+Thus, $$\ln(S_t / S_0) \sim \mathcal{N} \left( \left( \mu - \frac{\sigma^2}{2} \right) t, \sigma^2 t \right)$$
+
+# Stock price motion in Monte Carlo methods
+
+The probability density function:
+
+$$f_{S_t}(s) = \frac{1}{s \sigma \sqrt{2 \pi t}} \exp \left( -\frac{ \left( \ln(s / S_0) - \left( \mu - \frac{\sigma^2}{2} \right) t \right)^2 }{ 2 \sigma^2 t } \right)$$ 
+
+for $s > 0$.
+
+Expected value: $$\mathbb{E}[S_t] = S_0 e^{\mu t}$$
+
+Variance: $$\mathrm{Var}(S_t) = S_0^2 e^{2 \mu t} (e^{\sigma^2 t} - 1)$$. 
+
+
 # The algorithm of Monte Carlo method
 \begin{enumerate}
 \item Draw a random variable $x \sim N(0,1)$ and compute
